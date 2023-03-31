@@ -1,4 +1,3 @@
 export const logo={
-    w:'300px',
-
+    w:'200px'
 }

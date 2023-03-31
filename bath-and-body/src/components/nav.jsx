@@ -1,18 +1,31 @@
-import {Flex,Center,Image,Box,Button,Input} from '@chakra-ui/react';
+import {Flex,Center,Image,Box,Button,Input,Switch, useBoolean} from '@chakra-ui/react';
 import {Search2Icon} from '@chakra-ui/icons'
+
 
 
 export default function Nav(){
 
-return (
-    <Flex justifyContent={'space-around'} alignItems={'center'}>
+let [flag,setFlag]=useBoolean();
 
-<Box w={'200px'}>
-  <Image src='https://i.postimg.cc/bJdMYxP4/Bath-Hygiene2.png' alt='Not Found' /> 
+
+return (
+
+  <Box>
+<Box>Dark mode
+  <Switch onChange={setFlag.toggle}></Switch>
+
 </Box>
-<Flex  ><Input w={"200px"} type='text'/><Button><Search2Icon>
+
+    <Flex bg={flag?'black':'white'} justifyContent={'space-around'} alignItems={'center'}>
+<Box>{flag? <Image w={'200px'} src='https://i.postimg.cc/5yXV4VtJ/Bath-Hygiene-dark.png' alt='not Found' />:
+  <Image w={'240px'}  src='https://i.postimg.cc/bJdMYxP4/Bath-Hygiene2.png' alt='Not Found' /> 
+}
+</Box>
+
+<Flex><Input bg={'white'} w={"200px"} type='text'/><Button bg={flag?'darkgray':'lightgray'}><Search2Icon color={flag?'white':'black'}>
     </Search2Icon></Button></Flex >
 </Flex>
+</Box>
 )
 
 }
